@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [open, setOpen] = useState<number | null>(null);
-  const phone = "+525512345678"; // <-- Variable para el número
+  const phone = "+525641541108"; // <-- Variable para el número
 
   return (
     <main className="min-h-screen bg-white text-gray-900">
