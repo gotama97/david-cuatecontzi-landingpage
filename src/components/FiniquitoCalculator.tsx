@@ -70,7 +70,7 @@ export default function FiniquitoCalculator() {
     const total = aguinaldo + vacaciones + primaVacacional + indemnizacion;
 
     setResult({ aguinaldo, vacaciones, primaVacacional, indemnizacion, total });
-  }, []);
+  }, [fechaIngreso, fechaSalida, salarioMensual, motivo]);
 
   // Auto-calculate whenever any field changes
   useEffect(() => {
