@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 type Result = {
   aguinaldo: number;
@@ -18,7 +18,7 @@ function yearsBetween(start: Date, end: Date) {
   return Math.max(0, (end.getTime() - start.getTime()) / msPerYear);
 }
 
-export default function FiniquitoCalculator(): JSX.Element {
+export default function FiniquitoCalculator() {
   const [fechaIngreso, setFechaIngreso] = useState<string>("");
   const [fechaSalida, setFechaSalida] = useState<string>("");
   const [salarioMensual, setSalarioMensual] = useState<string>("");
@@ -26,7 +26,7 @@ export default function FiniquitoCalculator(): JSX.Element {
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<Result | null>(null);
 
-  const validateAndCompute = (showError = true) => {
+  const validateAndCompute = useCallback((showError = true) => {
     setError(null);
     setResult(null);
 
@@ -70,12 +70,12 @@ export default function FiniquitoCalculator(): JSX.Element {
     const total = aguinaldo + vacaciones + primaVacacional + indemnizacion;
 
     setResult({ aguinaldo, vacaciones, primaVacacional, indemnizacion, total });
-  };
+  }, []);
 
   // Auto-calculate whenever any field changes
   useEffect(() => {
     validateAndCompute(false); // false = don't show error messages during auto-compute
-  }, [fechaIngreso, fechaSalida, salarioMensual, motivo]);
+  }, [fechaIngreso, fechaSalida, salarioMensual, motivo, validateAndCompute]);
 
   return (
     <div className="relative">
