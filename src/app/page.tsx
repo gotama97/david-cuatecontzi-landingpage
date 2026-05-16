@@ -127,6 +127,24 @@ function LocationIcon({ className = "h-4 w-4" }: { className?: string }) {
   );
 }
 
+function StarIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="m12 2.6 2.8 5.7 6.3.9-4.6 4.5 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.5 6.3-.9L12 2.6Z" />
+    </svg>
+  );
+}
+
+function RatingStars() {
+  return (
+    <div aria-label="Calificación de 5 estrellas" className="flex gap-1 text-primary mb-6">
+      {Array.from({ length: 5 }).map((_, index) => (
+        <StarIcon key={index} />
+      ))}
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <main className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
@@ -281,7 +299,7 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white/5 p-8 rounded-xl border border-white/10">
-              <div className="flex gap-1 text-primary mb-6"><span className="material-icons text-sm">star</span><span className="material-icons text-sm">star</span><span className="material-icons text-sm">star</span><span className="material-icons text-sm">star</span><span className="material-icons text-sm">star</span></div>
+              <RatingStars />
               <p className="text-lg italic mb-8">&ldquo;Me querían dar solo una fracción de lo que me correspondía tras 10 años. Gracias al equipo de Cuatecontzi recuperé cada peso.&rdquo;</p>
               <div className="flex items-center gap-4">
                 <Image alt="Client Photo" className="w-12 h-12 rounded-full object-cover" width={48} height={48} src="https://lh3.googleusercontent.com/aida-public/AB6AXuD61YTosTfU5IomnQXpeXN7KAxphYtjz9fLsi4Ix5_r6UD2oEtZLlNWoA0W-Lxt-3r45MVfs04kijEy9NiUfRmriQafklOeFn4ctwVM3WOLhppFMnG306qiUK0h0XsSG_Am8Kc_i5wplp4iFgNn_Uog8X9_iCS5d6SpH3TvEfEq3R0KINOZQdnA6j4d2Kk73mpcRYeVLlfB1Pd_HdrIqhWGUAhbRniWDrQ8VG_F7IYUlnAb69KvFYk0-e-dyppKJfwVFl3qtSfjzg" />
@@ -292,7 +310,7 @@ export default function Home() {
               </div>
             </div>
             <div className="bg-white/5 p-8 rounded-xl border border-white/10">
-              <div className="flex gap-1 text-primary mb-6"><span className="material-icons text-sm">star</span><span className="material-icons text-sm">star</span><span className="material-icons text-sm">star</span><span className="material-icons text-sm">star</span><span className="material-icons text-sm">star</span></div>
+              <RatingStars />
               <p className="text-lg italic mb-8">&ldquo;Rápidos, eficientes y muy profesionales. La atención por WhatsApp de Cuatecontzi fue inmediata y resolutiva.&rdquo;</p>
               <div className="flex items-center gap-4">
                 <Image alt="Client Photo" className="w-12 h-12 rounded-full object-cover" width={48} height={48} src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8izTCjA2jZIDUR5xhJx8mjADmZtVwsoEBaGgCbXU8B2jcUgMppLX9jd2WyRh9ivBymSe0c-n-EgRtlboxF8yWaX-DEhdnonQz8vHq52Rr1a-9R5d0a629E1kLBZRSxi7VtLVDJk_qo9m1ZzUWsSF9w_0sbzvCEwd0Ox6kmd5ljtiy8DLhdN9iiaAfUb1E6gS0dR_Q9AEg-h9OdTllC4gm1Fg4EnXTgFOdI7D0AtXPwehgbySYpK3p8tg7YvVF_zEa1SMLLqArQQ" />
@@ -303,7 +321,7 @@ export default function Home() {
               </div>
             </div>
             <div className="bg-white/5 p-8 rounded-xl border border-white/10">
-              <div className="flex gap-1 text-primary mb-6"><span className="material-icons text-sm">star</span><span className="material-icons text-sm">star</span><span className="material-icons text-sm">star</span><span className="material-icons text-sm">star</span><span className="material-icons text-sm">star</span></div>
+              <RatingStars />
               <p className="text-lg italic mb-8">&ldquo;Pensé que por ser una empresa grande no podría hacer nada. Cuatecontzi me demostró que la ley es para todos.&rdquo;</p>
               <div className="flex items-center gap-4">
                 <Image alt="Client Photo" className="w-12 h-12 rounded-full object-cover" width={48} height={48} src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbogrMcX0lPJdjbivIUmXNFbhBz8bU12yA9UWAF1ie2uMndIKR32PSwfUK05QAKLnXBeHqt5SxSPfTUOUjxWH2CfmxO2NVUgSp4hpNt4Wue_-e9U_Nwfn5O7FhWTKpoVYtpoQUNym5-yzBGsFJvd5yT2ZosEUtQbbpLj3axNL-rcc5blwpWAxx8KWY7P_fY4V_ZacbvZ0aOfsyL4N7Z0I38V-f0AihVunCtTTW6aGYiAunZBcL3zT59ECju9V8zIR4lMM-I1mE_Q" />
