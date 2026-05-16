@@ -64,6 +64,69 @@ function WhatsAppIcon({ className = "h-8 w-8" }: { className?: string }) {
   );
 }
 
+function PhoneIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="none" viewBox="0 0 24 24">
+      <path
+        d="M6.6 4.8 8.5 3c.5-.5 1.4-.5 1.8.1l1.6 2.1c.4.5.4 1.2 0 1.7l-1.1 1.3a12 12 0 0 0 5 5l1.3-1.1c.5-.4 1.2-.4 1.7 0l2.1 1.6c.6.4.6 1.3.1 1.8l-1.8 1.9c-.9.9-2.2 1.2-3.4.8A18.5 18.5 0 0 1 5.8 8.2c-.4-1.2-.1-2.5.8-3.4Z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+}
+
+function UsersIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="none" viewBox="0 0 24 24">
+      <path
+        d="M8.5 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7ZM2.8 20c.6-3.2 2.7-5.1 5.7-5.1s5.1 1.9 5.7 5.1M16.2 11.2a3 3 0 1 0 0-6M15.5 15.1c2.4.3 4.1 1.9 4.7 4.9"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+}
+
+function MoneyIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="none" viewBox="0 0 24 24">
+      <path
+        d="M3.5 7.5h17v9h-17v-9ZM6.5 10.5h.01M17.5 13.5h.01M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM7 7.5c0 1.4-1.1 2.5-2.5 2.5M19.5 10c-1.4 0-2.5-1.1-2.5-2.5M4.5 14c1.4 0 2.5 1.1 2.5 2.5M17 16.5c0-1.4 1.1-2.5 2.5-2.5"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+}
+
+function LocationIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="none" viewBox="0 0 24 24">
+      <path
+        d="M19 10c0 5.2-7 11-7 11s-7-5.8-7-11a7 7 0 1 1 14 0Z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      />
+      <path
+        d="M12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <main className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
@@ -84,7 +147,7 @@ export default function Home() {
               <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#">Casos de Éxito</a>
               <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#">Blog</a>
               <a href="tel:+525641541108" className="bg-navy-custom hover:bg-navy-custom/90 text-white px-6 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2 shadow-lg shadow-navy-custom/20">
-                <span className="material-icons text-sm">phone</span>
+                <PhoneIcon />
                 CONSULTA GRATUITA
               </a>
             </div>
@@ -110,7 +173,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-6 pt-4">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-md border border-slate-100">
-                    <span className="material-icons text-primary">groups</span>
+                    <UsersIcon className="h-6 w-6 text-primary" />
                   </div>
                   <div>
                     <p className="font-bold text-xl leading-none text-navy-custom dark:text-white">1,500+</p>
@@ -119,7 +182,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-md border border-slate-100">
-                    <span className="material-icons text-primary">account_balance</span>
+                    <MoneyIcon className="h-6 w-6 text-primary" />
                   </div>
                   <div>
                     <p className="font-bold text-xl leading-none text-navy-custom dark:text-white">$25M+</p>
@@ -189,17 +252,17 @@ export default function Home() {
             <div className="lg:col-span-3 grid md:grid-cols-3 gap-8 relative">
               <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-slate-200 dark:bg-slate-800 z-0"></div>
               <div className="relative z-10 space-y-4 group">
-                <div className="w-16 h-16 rounded-full bg-white dark:bg-slate-900 border-4 border-navy-custom flex items-center justify-center text-2xl font-black text-navy-custom group-hover:bg-navy-custom group-hover:text-white transition-all">01</div>
+                <div className="w-16 h-16 rounded-full bg-primary border-4 border-white shadow-lg flex items-center justify-center text-2xl font-black text-white group-hover:bg-navy-custom transition-all">01</div>
                 <h4 className="font-bold text-xl">Diagnóstico</h4>
                 <p className="text-sm text-slate-500 leading-relaxed">Analizamos tu contrato y situación para determinar el monto real adeudado.</p>
               </div>
               <div className="relative z-10 space-y-4 group">
-                <div className="w-16 h-16 rounded-full bg-white dark:bg-slate-900 border-4 border-primary flex items-center justify-center text-2xl font-black text-primary group-hover:bg-primary group-hover:text-white transition-all">02</div>
+                <div className="w-16 h-16 rounded-full bg-navy-custom border-4 border-white shadow-lg flex items-center justify-center text-2xl font-black text-white group-hover:bg-primary transition-all">02</div>
                 <h4 className="font-bold text-xl">Conciliación</h4>
                 <p className="text-sm text-slate-500 leading-relaxed">Citamos a la empresa ante el Centro de Conciliación y negociamos con firmeza.</p>
               </div>
               <div className="relative z-10 space-y-4 group">
-                <div className="w-16 h-16 rounded-full bg-white dark:bg-slate-900 border-4 border-navy-custom flex items-center justify-center text-2xl font-black text-navy-custom group-hover:bg-navy-custom group-hover:text-white transition-all">03</div>
+                <div className="w-16 h-16 rounded-full bg-primary border-4 border-white shadow-lg flex items-center justify-center text-2xl font-black text-white group-hover:bg-navy-custom transition-all">03</div>
                 <h4 className="font-bold text-xl">Liquidación</h4>
                 <p className="text-sm text-slate-500 leading-relaxed">Supervisamos la firma del convenio y la entrega inmediata de tu pago.</p>
               </div>
@@ -214,10 +277,6 @@ export default function Home() {
             <div>
               <h2 className="text-3xl font-bold mb-2">Casos Ganados por Cuatecontzi</h2>
               <p className="text-white/60">Historias reales de justicia laboral lograda.</p>
-            </div>
-            <div className="flex gap-2">
-              <button className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10"><span className="material-icons">chevron_left</span></button>
-              <button className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10"><span className="material-icons">chevron_right</span></button>
             </div>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -283,8 +342,8 @@ export default function Home() {
               <h5 className="font-bold text-navy-custom dark:text-white mb-6 uppercase text-xs tracking-widest">Contacto</h5>
               <ul className="space-y-3 text-sm text-slate-500">
                 <li className="flex items-center gap-2"><span className="material-icons text-sm text-primary">email</span> contacto@cuatecontzi.com</li>
-                <li className="flex items-center gap-2"><span className="material-icons text-sm text-primary">phone</span> <a className="hover:text-primary transition-colors" href="tel:+525641541108">56 4154 1108</a></li>
-                <li className="flex items-center gap-2"><span className="material-icons text-sm text-primary">location_on</span> Cleveland, OH / CDMX</li>
+                <li className="flex items-center gap-2"><PhoneIcon className="h-4 w-4 text-primary" /> <a className="hover:text-primary transition-colors" href="tel:+525641541108">56 4154 1108</a></li>
+                <li className="flex items-center gap-2"><LocationIcon className="h-4 w-4 text-primary" /> CDMX</li>
               </ul>
             </div>
             <div>
@@ -310,9 +369,6 @@ export default function Home() {
       <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
         <a aria-label="WhatsApp" className="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform" href="https://wa.me/525641541108">
           <WhatsAppIcon />
-        </a>
-        <a aria-label="Llamar" className="w-14 h-14 bg-navy-custom text-white rounded-full flex items-center justify-center shadow-2xl hover:rotate-12 transition-transform" href="tel:+525641541108">
-          <span className="material-icons text-3xl">chat</span>
         </a>
       </div>
     </main>
