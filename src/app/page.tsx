@@ -3,6 +3,67 @@
 import Image from "next/image";
 import FiniquitoCalculator from "../components/FiniquitoCalculator";
 
+function BrandMark({ className = "h-8 w-8" }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      viewBox="0 0 48 48"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M24 4 39.5 10.5V22C39.5 32.4 33 40.3 24 44 15 40.3 8.5 32.4 8.5 22V10.5L24 4Z"
+        fill="currentColor"
+        opacity=".18"
+      />
+      <path
+        d="M24 5.7 38 11.6V22c0 9.1-5.5 16.3-14 20.1C15.5 38.3 10 31.1 10 22V11.6L24 5.7Z"
+        stroke="currentColor"
+        strokeWidth="3"
+      />
+      <path
+        d="M17.5 29.5H30.5M24 14v15M18 18h12M20 18l-4 8h8l-4-8ZM28 18l-4 8h8l-4-8Z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="3"
+      />
+      <path d="M18 34h12" stroke="currentColor" strokeLinecap="round" strokeWidth="3" />
+    </svg>
+  );
+}
+
+function FacebookIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.5c-.8-.1-1.6-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3V14h2.8v8h3.4Z" />
+    </svg>
+  );
+}
+
+function GlobeIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="none" viewBox="0 0 24 24">
+      <path
+        d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM3.6 9h16.8M3.6 15h16.8M12 3c2.1 2.3 3.2 5.3 3.2 9S14.1 18.7 12 21c-2.1-2.3-3.2-5.3-3.2-9S9.9 5.3 12 3Z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+}
+
+function WhatsAppIcon({ className = "h-8 w-8" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12.04 2C6.58 2 2.14 6.43 2.14 11.9c0 1.74.46 3.45 1.34 4.95L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.44 9.9-9.9A9.9 9.9 0 0 0 12.04 2Zm0 18.16h-.01a8.22 8.22 0 0 1-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.22 8.22 0 0 1-1.26-4.39 8.27 8.27 0 1 1 8.25 8.26Zm4.53-6.19c-.25-.12-1.47-.72-1.7-.8-.23-.09-.4-.13-.56.12-.17.25-.65.8-.79.96-.15.17-.29.18-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.38-1.73-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.57.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.11-.23-.17-.48-.29Z" />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <main className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
@@ -10,8 +71,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center gap-3">
-              <div className="bg-navy-custom p-2 rounded">
-                <span className="material-icons text-white text-3xl">gavel</span>
+              <div className="bg-navy-custom p-2 rounded text-white">
+                <BrandMark className="h-8 w-8" />
               </div>
               <div>
                 <span className="text-xl branding-title block leading-none text-navy-custom">CUATECONTZI</span>
@@ -22,10 +83,10 @@ export default function Home() {
               <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#">Servicios</a>
               <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#">Casos de Éxito</a>
               <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#">Blog</a>
-              <button className="bg-navy-custom hover:bg-navy-custom/90 text-white px-6 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2 shadow-lg shadow-navy-custom/20">
+              <a href="tel:+525641541108" className="bg-navy-custom hover:bg-navy-custom/90 text-white px-6 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2 shadow-lg shadow-navy-custom/20">
                 <span className="material-icons text-sm">phone</span>
                 CONSULTA GRATUITA
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -202,8 +263,8 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-12">
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <div className="bg-navy-custom p-1.5 rounded">
-                  <span className="material-icons text-white text-xl">gavel</span>
+                <div className="bg-navy-custom p-1.5 rounded text-white">
+                  <BrandMark className="h-5 w-5" />
                 </div>
                 <span className="text-lg font-extrabold tracking-tight text-navy-custom dark:text-white">CUATECONTZI</span>
               </div>
@@ -222,7 +283,7 @@ export default function Home() {
               <h5 className="font-bold text-navy-custom dark:text-white mb-6 uppercase text-xs tracking-widest">Contacto</h5>
               <ul className="space-y-3 text-sm text-slate-500">
                 <li className="flex items-center gap-2"><span className="material-icons text-sm text-primary">email</span> contacto@cuatecontzi.com</li>
-                <li className="flex items-center gap-2"><span className="material-icons text-sm text-primary">phone</span> +1 (216) 555-0199</li>
+                <li className="flex items-center gap-2"><span className="material-icons text-sm text-primary">phone</span> <a className="hover:text-primary transition-colors" href="tel:+525641541108">56 4154 1108</a></li>
                 <li className="flex items-center gap-2"><span className="material-icons text-sm text-primary">location_on</span> Cleveland, OH / CDMX</li>
               </ul>
             </div>
@@ -231,8 +292,8 @@ export default function Home() {
               <p className="text-sm text-slate-500 mb-2">Lun - Vie: 9:00 AM - 7:00 PM</p>
               <p className="text-sm text-slate-500 mb-6">Sáb: 10:00 AM - 2:00 PM</p>
               <div className="flex gap-4">
-                <a className="w-8 h-8 rounded bg-navy-custom flex items-center justify-center text-white hover:bg-primary transition-colors" href="#"><span className="material-icons text-sm">facebook</span></a>
-                <a className="w-8 h-8 rounded bg-navy-custom flex items-center justify-center text-white hover:bg-primary transition-colors" href="#"><span className="material-icons text-sm">language</span></a>
+                <a aria-label="Facebook" className="w-8 h-8 rounded bg-navy-custom flex items-center justify-center text-white hover:bg-primary transition-colors" href="#"><FacebookIcon /></a>
+                <a aria-label="Sitio web" className="w-8 h-8 rounded bg-navy-custom flex items-center justify-center text-white hover:bg-primary transition-colors" href="#"><GlobeIcon /></a>
               </div>
             </div>
           </div>
@@ -247,12 +308,12 @@ export default function Home() {
       </footer>
 
       <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
-        <a className="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform" href="#">
-          <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.483 8.411-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.308 1.658zm6.222-3.61c1.566.93 3.127 1.391 4.707 1.392 5.404 0 9.802-4.397 9.805-9.802.001-2.618-1.02-5.08-2.876-6.937-1.856-1.857-4.319-2.876-6.933-2.876-5.41 0-9.803 4.397-9.806 9.802 0 1.748.459 3.456 1.328 4.961l-.985 3.596 3.76-.986zm11.41-6.848c-.313-.156-1.854-.915-2.14-.1.02-.285-.156-.39-.156-.39-.313-.418-.546-.627-.813-.627s-.52.209-1.718 1.41c-1.198 1.201-1.46 1.41-1.746 1.41s-.546-.209-.813-.418c-.267-.209-.599-.444-.974-.778-.376-.334-.716-.689-1.02-1.065-.304-.376-.564-.783-.781-1.222-.217-.439-.344-.814-.381-1.127-.037-.313.156-.574.313-.731.156-.157.313-.365.469-.548.156-.183.209-.313.313-.521.104-.209.052-.391-.026-.547-.078-.157-.704-1.696-.964-2.321-.26-.626-.547-.547-.756-.547-.209 0-.443-.026-.678-.026-.235 0-.626.078-.938.418-.313.339-1.198 1.173-1.198 2.863s1.225 3.313 1.382 3.522c.157.209 2.411 3.682 5.842 5.163 3.431 1.481 3.431.986 4.056.924.626-.062 2.031-.831 2.318-1.638.287-.807.287-1.498.204-1.638-.083-.14-.313-.223-.626-.379z"></path></svg>
+        <a aria-label="WhatsApp" className="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform" href="https://wa.me/525641541108">
+          <WhatsAppIcon />
         </a>
-        <button className="w-14 h-14 bg-navy-custom text-white rounded-full flex items-center justify-center shadow-2xl hover:rotate-12 transition-transform">
+        <a aria-label="Llamar" className="w-14 h-14 bg-navy-custom text-white rounded-full flex items-center justify-center shadow-2xl hover:rotate-12 transition-transform" href="tel:+525641541108">
           <span className="material-icons text-3xl">chat</span>
-        </button>
+        </a>
       </div>
     </main>
   );
