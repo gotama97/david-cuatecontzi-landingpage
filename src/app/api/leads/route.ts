@@ -9,6 +9,7 @@ type LeadPayload = {
   telefono?: string;
   email?: string;
   motivo?: string;
+  mensaje?: string;
   salarioMensual?: number;
   fechaIngreso?: string;
   fechaSalida?: string;
@@ -75,6 +76,7 @@ export async function POST(req: Request) {
     telefono,
     email,
     motivo: body.motivo ?? null,
+    notas: body.mensaje?.trim() || null,
     salario_mensual: body.salarioMensual ?? null,
     fecha_ingreso: body.fechaIngreso || null,
     fecha_salida: body.fechaSalida || null,

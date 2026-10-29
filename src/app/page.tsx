@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import FiniquitoCalculator from "../components/FiniquitoCalculator";
+import ContactForm from "../components/ContactForm";
 
 function BrandMark({ className = "h-8 w-8" }: { className?: string }) {
   return (
@@ -206,6 +207,7 @@ export default function Home() {
             </div>
             <div className="hidden md:flex items-center space-x-8">
               <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#servicios">Servicios</a>
+              <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#calculadora">Calculadora</a>
               <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#casos-de-exito">Casos de Éxito</a>
               <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#contacto">Contacto</a>
               <a href="tel:+525641541108" className="bg-navy-custom hover:bg-navy-custom/90 text-white px-6 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2 shadow-lg shadow-navy-custom/20">
@@ -254,7 +256,34 @@ export default function Home() {
               </div>
             </div>
             <div>
-              {/* Finiquito calculator component */}
+              {/* Formulario de contacto simple */}
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="calculadora" className="py-20 bg-white dark:bg-slate-950 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-5">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-sm">
+                HERRAMIENTA GRATUITA
+              </div>
+              <h2 className="text-4xl font-extrabold text-navy-custom dark:text-white leading-tight">
+                Calculadora de Finiquito <span className="text-primary">2026</span>
+              </h2>
+              <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                ¿No sabes cuánto te corresponde? Con tu fecha de ingreso, tu fecha de salida y tu
+                salario, obtén en segundos un estimado de tu finiquito o liquidación.
+              </p>
+              <ul className="space-y-2 text-slate-600 dark:text-slate-300 text-sm">
+                <li className="flex items-start gap-2"><span className="text-primary font-black">✓</span> Incluye aguinaldo, vacaciones, prima vacacional e indemnización.</li>
+                <li className="flex items-start gap-2"><span className="text-primary font-black">✓</span> Resultado inmediato, gratuito y sin compromiso.</li>
+                <li className="flex items-start gap-2"><span className="text-primary font-black">✓</span> Un abogado valida tu caso real sin costo.</li>
+              </ul>
+            </div>
+            <div>
               <FiniquitoCalculator />
             </div>
           </div>
