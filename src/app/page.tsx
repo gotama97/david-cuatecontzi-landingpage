@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FiniquitoCalculator from "../components/FiniquitoCalculator";
@@ -94,20 +95,6 @@ function UsersIcon({ className = "h-6 w-6" }: { className?: string }) {
   );
 }
 
-function MoneyIcon({ className = "h-6 w-6" }: { className?: string }) {
-  return (
-    <svg aria-hidden="true" className={className} fill="none" viewBox="0 0 24 24">
-      <path
-        d="M3.5 7.5h17v9h-17v-9ZM6.5 10.5h.01M17.5 13.5h.01M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM7 7.5c0 1.4-1.1 2.5-2.5 2.5M19.5 10c-1.4 0-2.5-1.1-2.5-2.5M4.5 14c1.4 0 2.5 1.1 2.5 2.5M17 16.5c0-1.4 1.1-2.5 2.5-2.5"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-      />
-    </svg>
-  );
-}
-
 function LocationIcon({ className = "h-4 w-4" }: { className?: string }) {
   return (
     <svg aria-hidden="true" className={className} fill="none" viewBox="0 0 24 24">
@@ -133,14 +120,6 @@ function StarIcon({ className = "h-4 w-4" }: { className?: string }) {
   return (
     <svg aria-hidden="true" className={className} fill="currentColor" viewBox="0 0 24 24">
       <path d="m12 2.6 2.8 5.7 6.3.9-4.6 4.5 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.5 6.3-.9L12 2.6Z" />
-    </svg>
-  );
-}
-
-function VerifiedIcon({ className = "h-4 w-4" }: { className?: string }) {
-  return (
-    <svg aria-hidden="true" className={className} fill="currentColor" viewBox="0 0 24 24">
-      <path d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5l-8-3Zm-1.2 13.2L7 11.4l1.4-1.4 2.4 2.4 4.8-4.8L17 9l-6.2 6.2Z" />
     </svg>
   );
 }
@@ -191,6 +170,27 @@ function RatingStars() {
 }
 
 export default function Home() {
+  useEffect(() => {
+    const els = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
+    if (!("IntersectionObserver" in window)) {
+      els.forEach((el) => el.classList.add("is-visible"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
   return (
     <main className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
       <nav className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
@@ -219,43 +219,39 @@ export default function Home() {
         </div>
       </nav>
 
-      <section className="relative pt-12 pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-navy-custom opacity-[0.03] pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-sm">
-                <VerifiedIcon className="h-4 w-4" />
-                ESPECIALISTAS EN CONCILIACIONES LABORALES
+      <section className="relative overflow-hidden hero-navy pt-16 pb-20 lg:pt-24 lg:pb-28">
+        <div className="absolute inset-0 hero-grid pointer-events-none"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="space-y-7 text-white">
+              <div className="hero-enter inline-flex items-center gap-3">
+                <span className="accent-rule"></span>
+                <span className="text-sm font-semibold text-white/70">Despidos injustificados · Ciudad de México</span>
               </div>
-              <h1 className="text-5xl lg:text-6xl font-extrabold text-navy-custom dark:text-white leading-tight">
-                ¿Fuiste despedido? <span className="text-primary italic">Calcula tu liquidación justa.</span>
+              <h1 className="hero-enter hero-enter-2 font-serif text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.03]">
+                Recupera cada peso de tu liquidación.
               </h1>
-              <p className="text-lg text-slate-600 dark:text-slate-300 max-w-lg leading-relaxed">
-                No aceptes menos de lo que marca la ley. En <strong>Cuatecontzi Asesoría Legal</strong> garantizamos que recibas el pago total de tus prestaciones.
+              <p className="hero-enter hero-enter-3 text-lg text-white/75 max-w-xl leading-relaxed">
+                No aceptes menos de lo que marca la ley. En Cuatecontzi peleamos por el pago íntegro de tus prestaciones — y solo cobramos si tú cobras.
               </p>
-              <div className="flex flex-wrap gap-6 pt-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-md border border-slate-100">
-                    <UsersIcon className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-xl leading-none text-navy-custom dark:text-white">1,500+</p>
-                    <p className="text-sm text-slate-500">Casos Ganados</p>
-                  </div>
+              <div className="hero-enter hero-enter-3 flex items-center gap-6 pt-2">
+                <div>
+                  <p className="font-serif text-3xl font-black leading-none">1,500<span className="text-primary">+</span></p>
+                  <p className="text-xs text-white/60 mt-1.5">Casos ganados</p>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-md border border-slate-100">
-                    <MoneyIcon className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-xl leading-none text-navy-custom dark:text-white">$25M+</p>
-                    <p className="text-sm text-slate-500">Recuperados</p>
-                  </div>
+                <span className="w-px h-10 bg-white/20"></span>
+                <div>
+                  <p className="font-serif text-3xl font-black leading-none">$25M<span className="text-primary">+</span></p>
+                  <p className="text-xs text-white/60 mt-1.5">Recuperados</p>
+                </div>
+                <span className="w-px h-10 bg-white/20"></span>
+                <div>
+                  <p className="font-serif text-3xl font-black leading-none">Sin anticipo</p>
+                  <p className="text-xs text-white/60 mt-1.5">Cobras primero tú</p>
                 </div>
               </div>
             </div>
-            <div>
+            <div className="hero-enter hero-enter-4">
               {/* Formulario de contacto simple */}
               <ContactForm />
             </div>
@@ -266,12 +262,13 @@ export default function Home() {
       <section id="calculadora" className="py-20 bg-white dark:bg-slate-950 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-5">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-sm">
-                HERRAMIENTA GRATUITA
+            <div className="space-y-5 reveal">
+              <div className="inline-flex items-center gap-3">
+                <span className="accent-rule"></span>
+                <span className="text-sm font-semibold text-slate-500">Herramienta gratuita</span>
               </div>
-              <h2 className="text-4xl font-extrabold text-navy-custom dark:text-white leading-tight">
-                Calculadora de Finiquito <span className="text-primary">2026</span>
+              <h2 className="font-serif text-4xl lg:text-5xl font-black text-navy-custom dark:text-white leading-[1.05]">
+                Calculadora de Finiquito 2026
               </h2>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                 ¿No sabes cuánto te corresponde? Con tu fecha de ingreso, tu fecha de salida y tu
@@ -292,10 +289,10 @@ export default function Home() {
 
       <section id="servicios" className="py-20 bg-background-light dark:bg-background-dark scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-navy-custom dark:text-white mb-4">Nuestros Servicios</h2>
+          <div className="text-center mb-14 reveal">
+            <h2 className="font-serif text-4xl lg:text-5xl font-black text-navy-custom dark:text-white mb-4">Nuestros Servicios</h2>
             <p className="text-slate-500 max-w-2xl mx-auto">Defensa laboral integral: desde calcular lo que realmente te corresponde hasta representarte ante los tribunales.</p>
-            <div className="h-1.5 w-24 bg-primary mx-auto rounded-full mt-5"></div>
+            <div className="accent-rule mx-auto mt-6"></div>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-xl transition-all">
@@ -332,9 +329,9 @@ export default function Home() {
 
       <section className="py-20 bg-white dark:bg-slate-950">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold dark:text-white mb-4">¿Por qué contratar a un experto?</h2>
-            <div className="h-1.5 w-24 bg-primary mx-auto rounded-full"></div>
+          <div className="text-center mb-16 reveal">
+            <h2 className="font-serif text-4xl lg:text-5xl font-black text-navy-custom dark:text-white mb-4">¿Por qué contratar a un experto?</h2>
+            <div className="accent-rule mx-auto"></div>
           </div>
 
           <div className="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 shadow-xl">
@@ -377,7 +374,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-4 gap-8">
             <div className="lg:col-span-1">
-              <h2 className="text-4xl font-extrabold text-navy-custom dark:text-white mb-6">Nuestro Proceso de Éxito</h2>
+              <h2 className="font-serif text-4xl lg:text-5xl font-black text-navy-custom dark:text-white mb-6">Nuestro Proceso de Éxito</h2>
               <p className="text-slate-600 dark:text-slate-400">Acompañamiento total desde el primer mensaje hasta la firma de tu cheque de liquidación.</p>
             </div>
             <div className="lg:col-span-3 grid md:grid-cols-3 gap-8 relative">
@@ -406,7 +403,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <h2 className="text-3xl font-bold mb-2">Casos Ganados por Cuatecontzi</h2>
+              <h2 className="font-serif text-4xl lg:text-5xl font-black mb-2">Casos Ganados por Cuatecontzi</h2>
               <p className="text-white/60">Historias reales de justicia laboral lograda.</p>
             </div>
           </div>
