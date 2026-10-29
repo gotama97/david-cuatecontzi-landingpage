@@ -136,6 +136,49 @@ function StarIcon({ className = "h-4 w-4" }: { className?: string }) {
   );
 }
 
+function VerifiedIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5l-8-3Zm-1.2 13.2L7 11.4l1.4-1.4 2.4 2.4 4.8-4.8L17 9l-6.2 6.2Z" />
+    </svg>
+  );
+}
+
+function BalanceIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M12 3v18M7 21h10M5 7h14" />
+      <path d="M5 7 2.5 13h5L5 7ZM19 7l-2.5 6h5L19 7ZM12 3 5 7M12 3l7 4" />
+    </svg>
+  );
+}
+
+function ShieldIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M12 3 5 6v5c0 4.2 2.8 7.3 7 8.6 4.2-1.3 7-4.4 7-8.6V6l-7-3Z" />
+    </svg>
+  );
+}
+
+function CalculateIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <rect x="4" y="3" width="16" height="18" rx="2" />
+      <path d="M8 7h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01" />
+    </svg>
+  );
+}
+
+function EmailIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m3 7 9 6 9-6" />
+    </svg>
+  );
+}
+
 function RatingStars() {
   return (
     <div aria-label="Calificación de 5 estrellas" className="flex gap-1 text-primary mb-6">
@@ -180,7 +223,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-sm">
-                <span className="material-icons text-sm">verified_user</span>
+                <VerifiedIcon className="h-4 w-4" />
                 ESPECIALISTAS EN CONCILIACIONES LABORALES
               </div>
               <h1 className="text-5xl lg:text-6xl font-extrabold text-navy-custom dark:text-white leading-tight">
@@ -228,28 +271,28 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-xl transition-all">
               <div className="w-12 h-12 rounded-lg bg-navy-custom text-white flex items-center justify-center mb-4">
-                <span className="material-icons">gavel</span>
+                <BalanceIcon className="h-6 w-6" />
               </div>
               <h3 className="font-bold text-lg text-navy-custom dark:text-white mb-2">Despidos Injustificados</h3>
               <p className="text-sm text-slate-500 leading-relaxed">Te representamos para exigir la indemnización que marca la ley y el pago íntegro de tus prestaciones cuando te despiden sin causa justificada.</p>
             </div>
             <div className="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-xl transition-all">
               <div className="w-12 h-12 rounded-lg bg-navy-custom text-white flex items-center justify-center mb-4">
-                <span className="material-icons">shield</span>
+                <ShieldIcon className="h-6 w-6" />
               </div>
               <h3 className="font-bold text-lg text-navy-custom dark:text-white mb-2">Acoso Laboral</h3>
               <p className="text-sm text-slate-500 leading-relaxed">Asesoría y acción legal ante hostigamiento o acoso en el trabajo, protegiendo tus derechos, tu integridad y tu estabilidad laboral.</p>
             </div>
             <div className="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-xl transition-all">
               <div className="w-12 h-12 rounded-lg bg-navy-custom text-white flex items-center justify-center mb-4">
-                <span className="material-icons">calculate</span>
+                <CalculateIcon className="h-6 w-6" />
               </div>
               <h3 className="font-bold text-lg text-navy-custom dark:text-white mb-2">Cálculo de Finiquito</h3>
               <p className="text-sm text-slate-500 leading-relaxed">Determinamos con precisión el monto que realmente te corresponde por finiquito o liquidación, para que no aceptes menos de lo justo.</p>
             </div>
             <div className="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-xl transition-all">
               <div className="w-12 h-12 rounded-lg bg-navy-custom text-white flex items-center justify-center mb-4">
-                <span className="material-icons">groups</span>
+                <UsersIcon className="h-6 w-6" />
               </div>
               <h3 className="font-bold text-lg text-navy-custom dark:text-white mb-2">Asesoría a Sindicatos</h3>
               <p className="text-sm text-slate-500 leading-relaxed">Acompañamiento legal a sindicatos y grupos de trabajadores en negociaciones colectivas y en la defensa de sus intereses.</p>
@@ -400,7 +443,7 @@ export default function Home() {
             <div>
               <h5 className="font-bold text-navy-custom dark:text-white mb-6 uppercase text-xs tracking-widest">Contacto</h5>
               <ul className="space-y-3 text-sm text-slate-500">
-                <li className="flex items-center gap-2"><span className="material-icons text-sm text-primary">email</span> contacto@cuatecontzi.com</li>
+                <li className="flex items-center gap-2"><EmailIcon className="h-4 w-4 text-primary" /> contacto@cuatecontzi.com</li>
                 <li className="flex items-center gap-2"><PhoneIcon className="h-4 w-4 text-primary" /> <a className="hover:text-primary transition-colors" href="tel:+525641541108">56 4154 1108</a></li>
                 <li className="flex items-center gap-2"><LocationIcon className="h-4 w-4 text-primary" /> CDMX</li>
               </ul>
