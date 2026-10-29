@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BrandMark from "@/components/BrandMark";
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -7,7 +8,9 @@ export default function BlogLayout({ children }: { children: React.ReactNode }) 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="flex items-center gap-3">
-              <div className="bg-navy-custom text-white font-serif font-black w-10 h-10 rounded flex items-center justify-center text-lg">C</div>
+              <div className="bg-navy-custom p-2 rounded text-white">
+                <BrandMark className="h-8 w-8" />
+              </div>
               <div className="leading-none">
                 <span className="block branding-title text-navy-custom text-lg">CUATECONTZI</span>
                 <span className="text-[10px] tracking-widest text-primary font-bold uppercase">Asesoría Laboral</span>
