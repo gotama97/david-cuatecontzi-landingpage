@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import FiniquitoCalculator from "../components/FiniquitoCalculator";
 import ContactForm from "../components/ContactForm";
+import { getAllPosts, formatDate } from "@/lib/posts";
 
 function BrandMark({ className = "h-8 w-8" }: { className?: string }) {
   return (
@@ -191,6 +192,8 @@ export default function Home() {
     return () => io.disconnect();
   }, []);
 
+  const latestPosts = getAllPosts().slice(0, 3);
+
   return (
     <main className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display overflow-x-hidden">
       <nav className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
@@ -208,7 +211,7 @@ export default function Home() {
             <div className="hidden md:flex items-center space-x-8">
               <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#servicios">Servicios</a>
               <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#calculadora">Calculadora</a>
-              <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#casos-de-exito">Casos de Éxito</a>
+              <Link className="text-navy-custom hover:text-primary transition-colors font-semibold" href="/blog">Blog</Link>
               <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#contacto">Contacto</a>
               <a href="tel:+525641541108" className="bg-navy-custom hover:bg-navy-custom/90 text-white px-6 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2 shadow-lg shadow-navy-custom/20">
                 <PhoneIcon />
@@ -466,6 +469,47 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-background-light dark:bg-background-dark">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-end justify-between mb-10 reveal">
+            <div>
+              <div className="flex items-center gap-3 mb-3">
+                <span className="accent-rule"></span>
+                <span className="text-sm font-semibold text-slate-500">Recursos</span>
+              </div>
+              <h2 className="font-serif text-4xl lg:text-5xl font-black text-navy-custom dark:text-white">Del blog</h2>
+            </div>
+            <Link href="/blog" className="hidden sm:inline text-primary font-bold hover:underline">Ver todo</Link>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {latestPosts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="group flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition-all"
+              >
+                <div className="h-24 bg-navy-custom relative overflow-hidden">
+                  <div className="absolute inset-0 hero-grid opacity-60"></div>
+                  <span className="absolute bottom-3 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">{post.category}</span>
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <h3 className="font-serif text-lg font-bold text-navy-custom dark:text-white leading-snug mb-2 group-hover:text-primary transition-colors">{post.title}</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed flex-1">{post.excerpt}</p>
+                  <div className="mt-4 flex items-center gap-2 text-xs text-slate-400">
+                    <time dateTime={post.date}>{formatDate(post.date)}</time>
+                    <span>·</span>
+                    <span>{post.readMin} min</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-8 sm:hidden">
+            <Link href="/blog" className="text-primary font-bold hover:underline">Ver todas las publicaciones</Link>
           </div>
         </div>
       </section>
