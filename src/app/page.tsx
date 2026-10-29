@@ -192,7 +192,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+    <main className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display overflow-x-hidden">
       <nav className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
@@ -234,19 +234,19 @@ export default function Home() {
               <p className="hero-enter hero-enter-3 text-lg text-white/75 max-w-xl leading-relaxed">
                 No aceptes menos de lo que marca la ley. En Cuatecontzi peleamos por el pago íntegro de tus prestaciones, y solo cobramos si tú cobras.
               </p>
-              <div className="hero-enter hero-enter-3 flex items-center gap-6 pt-2">
+              <div className="hero-enter hero-enter-3 flex flex-wrap items-center gap-x-6 gap-y-4 pt-2">
                 <div>
-                  <p className="font-serif text-3xl font-black leading-none">1,500<span className="text-primary">+</span></p>
+                  <p className="font-serif text-2xl sm:text-3xl font-black leading-none">1,500<span className="text-primary">+</span></p>
                   <p className="text-xs text-white/60 mt-1.5">Casos ganados</p>
                 </div>
-                <span className="w-px h-10 bg-white/20"></span>
+                <span className="hidden sm:block w-px h-10 bg-white/20"></span>
                 <div>
-                  <p className="font-serif text-3xl font-black leading-none">$25M<span className="text-primary">+</span></p>
+                  <p className="font-serif text-2xl sm:text-3xl font-black leading-none">$25M<span className="text-primary">+</span></p>
                   <p className="text-xs text-white/60 mt-1.5">Recuperados</p>
                 </div>
-                <span className="w-px h-10 bg-white/20"></span>
+                <span className="hidden sm:block w-px h-10 bg-white/20"></span>
                 <div>
-                  <p className="font-serif text-3xl font-black leading-none">Sin anticipo</p>
+                  <p className="font-serif text-2xl sm:text-3xl font-black leading-none">Sin anticipo</p>
                   <p className="text-xs text-white/60 mt-1.5">Cobras primero tú</p>
                 </div>
               </div>
