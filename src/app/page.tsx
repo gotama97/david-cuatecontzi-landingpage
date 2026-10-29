@@ -334,7 +334,8 @@ export default function Home() {
             <div className="accent-rule mx-auto"></div>
           </div>
 
-          <div className="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 shadow-xl">
+          {/* Tabla (escritorio) */}
+          <div className="hidden md:block overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 shadow-xl">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-navy-custom text-white">
@@ -366,6 +367,30 @@ export default function Home() {
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          {/* Tarjetas (móvil) */}
+          <div className="md:hidden space-y-4">
+            {[
+              { concepto: "Monto de Liquidación", sin: "Oferta mínima de la empresa", con: "100% de lo legal + Bonos" },
+              { concepto: "Tiempo de Proceso", sin: "Meses de incertidumbre", con: "Conciliación Express" },
+              { concepto: "Presión Psicológica", sin: "Tú negocias directamente", con: "Nosotros damos la cara" },
+              { concepto: "Gastos Legales", sin: "Variable / Anticipos", con: "Cobra solo si tú cobras" },
+            ].map((row) => (
+              <div key={row.concepto} className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+                <div className="bg-navy-custom text-white px-5 py-3 font-bold">{row.concepto}</div>
+                <div className="divide-y divide-slate-100">
+                  <div className="px-5 py-3">
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Sin abogado</p>
+                    <p className="text-sm text-slate-700 mt-1">{row.sin}</p>
+                  </div>
+                  <div className="px-5 py-3 bg-primary/5">
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-primary">Con Cuatecontzi</p>
+                    <p className="text-sm font-bold text-primary mt-1">{row.con}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
