@@ -292,7 +292,7 @@ export default function FiniquitoCalculator() {
                   className="mt-0.5 rounded border-slate-300 text-primary focus:ring-primary"
                 />
                 <span>
-                  Acepto el <a href="#" className="underline hover:text-primary">aviso de privacidad</a> y ser contactado por Cuatecontzi Asesoría Legal.
+                  Acepto el <a href="/aviso-de-privacidad" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">aviso de privacidad</a> y ser contactado por Cuatecontzi Asesoría Legal.
                 </span>
               </label>
 

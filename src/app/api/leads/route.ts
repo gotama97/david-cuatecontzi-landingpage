@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "@/lib/supabase";
+import { sendLeadNotification } from "@/lib/notify";
 
 export const runtime = "nodejs";
 
@@ -95,6 +96,18 @@ export async function POST(req: Request) {
       { status: 500 }
     );
   }
+
+  // Notificación por correo (no bloquea la respuesta si falla o no está configurada)
+  await sendLeadNotification({
+    nombre,
+    telefono,
+    email,
+    motivo: body.motivo ?? null,
+    montoEstimado: body.montoEstimado ?? null,
+    salarioMensual: body.salarioMensual ?? null,
+    antiguedadAnios: body.antiguedadAnios ?? null,
+    origen: body.origen ?? "calculadora",
+  });
 
   return NextResponse.json({ ok: true, stored: true });
 }
