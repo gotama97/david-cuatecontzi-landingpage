@@ -288,7 +288,7 @@ export default function FiniquitoCalculator() {
                   className="w-full rounded border-slate-300 dark:border-slate-700 dark:bg-slate-800 text-sm focus:ring-primary focus:border-primary"
                   type="tel"
                   inputMode="tel"
-                  placeholder="Teléfono (WhatsApp) — 10 dígitos"
+                  placeholder="Teléfono (WhatsApp), 10 dígitos"
                   autoComplete="tel"
                 />
                 <input

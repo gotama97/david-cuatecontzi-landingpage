@@ -232,7 +232,7 @@ export default function Home() {
                 Recupera cada peso de tu liquidación.
               </h1>
               <p className="hero-enter hero-enter-3 text-lg text-white/75 max-w-xl leading-relaxed">
-                No aceptes menos de lo que marca la ley. En Cuatecontzi peleamos por el pago íntegro de tus prestaciones — y solo cobramos si tú cobras.
+                No aceptes menos de lo que marca la ley. En Cuatecontzi peleamos por el pago íntegro de tus prestaciones, y solo cobramos si tú cobras.
               </p>
               <div className="hero-enter hero-enter-3 flex items-center gap-6 pt-2">
                 <div>
@@ -280,7 +280,7 @@ export default function Home() {
                 <li className="flex items-start gap-2"><span className="text-primary font-black">✓</span> Un abogado valida tu caso real sin costo.</li>
               </ul>
             </div>
-            <div>
+            <div className="reveal">
               <FiniquitoCalculator />
             </div>
           </div>

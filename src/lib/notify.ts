@@ -14,7 +14,7 @@
 const currency = (v?: number | null) =>
   typeof v === "number"
     ? new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN" }).format(v)
-    : "—";
+    : "-";
 
 export type LeadNotification = {
   nombre: string;
@@ -35,7 +35,7 @@ export async function sendLeadNotification(lead: LeadNotification): Promise<void
   if (!apiKey || !to) return; // notificación no configurada todavía
 
   const waLink = `https://wa.me/${lead.telefono.replace(/\D/g, "")}`;
-  const subject = `🔔 Nuevo lead: ${lead.nombre} — ${currency(lead.montoEstimado)}`;
+  const subject = `🔔 Nuevo lead: ${lead.nombre} (${currency(lead.montoEstimado)})`;
 
   const html = `
     <div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;color:#0f172a">
@@ -46,10 +46,10 @@ export async function sendLeadNotification(lead: LeadNotification): Promise<void
         <p style="margin:0 0 16px"><strong>${lead.nombre}</strong> acaba de dejar sus datos en la calculadora.</p>
         <table style="width:100%;border-collapse:collapse;font-size:14px">
           <tr><td style="padding:6px 0;color:#64748b">Teléfono</td><td style="padding:6px 0;text-align:right"><a href="tel:${lead.telefono}">${lead.telefono}</a></td></tr>
-          <tr><td style="padding:6px 0;color:#64748b">Correo</td><td style="padding:6px 0;text-align:right">${lead.email || "—"}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b">Motivo</td><td style="padding:6px 0;text-align:right">${lead.motivo || "—"}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b">Correo</td><td style="padding:6px 0;text-align:right">${lead.email || "-"}</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b">Motivo</td><td style="padding:6px 0;text-align:right">${lead.motivo || "-"}</td></tr>
           <tr><td style="padding:6px 0;color:#64748b">Salario mensual</td><td style="padding:6px 0;text-align:right">${currency(lead.salarioMensual)}</td></tr>
-          <tr><td style="padding:6px 0;color:#64748b">Antigüedad</td><td style="padding:6px 0;text-align:right">${lead.antiguedadAnios ?? "—"} años</td></tr>
+          <tr><td style="padding:6px 0;color:#64748b">Antigüedad</td><td style="padding:6px 0;text-align:right">${lead.antiguedadAnios ?? "-"} años</td></tr>
           <tr><td style="padding:6px 0;color:#64748b">Finiquito estimado</td><td style="padding:6px 0;text-align:right;font-weight:bold;color:#E31937">${currency(lead.montoEstimado)}</td></tr>
         </table>
         <a href="${waLink}" style="display:inline-block;margin-top:20px;background:#25D366;color:#fff;text-decoration:none;padding:12px 20px;border-radius:8px;font-weight:bold">Escribir por WhatsApp</a>

@@ -113,7 +113,7 @@ export default function ContactForm() {
                 className="w-full rounded border-slate-300 text-sm focus:ring-primary focus:border-primary"
                 type="tel"
                 inputMode="tel"
-                placeholder="Teléfono (WhatsApp) — 10 dígitos"
+                placeholder="Teléfono (WhatsApp), 10 dígitos"
                 autoComplete="tel"
               />
               <input
