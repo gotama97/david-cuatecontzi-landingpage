@@ -21,6 +21,23 @@ function yearsBetween(start: Date, end: Date) {
   return Math.max(0, (end.getTime() - start.getTime()) / msPerYear);
 }
 
+function CalculateIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <rect x="4" y="3" width="16" height="18" rx="2" />
+      <path d="M8 7h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01" />
+    </svg>
+  );
+}
+
+function CheckCircleIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" className={className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.2 14.4-4.2-4.2 1.4-1.4 2.8 2.8 5.6-5.6 1.4 1.4-7 7Z" />
+    </svg>
+  );
+}
+
 export default function FiniquitoCalculator() {
   // --- Datos del cálculo ---
   const [fechaIngreso, setFechaIngreso] = useState<string>("");
@@ -189,7 +206,7 @@ export default function FiniquitoCalculator() {
       <div className="relative bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden">
         <div className="bg-navy-custom p-6 text-white">
           <h3 className="text-xl font-bold flex items-center gap-2">
-            <span className="material-icons">calculate</span>
+            <CalculateIcon className="h-5 w-5" />
             Calculadora de Finiquito 2026
           </h3>
           <p className="text-white/60 text-xs mt-1 bg-white/10 inline-block px-2 py-0.5 rounded">Estimación Legal Provisoria</p>
@@ -312,7 +329,7 @@ export default function FiniquitoCalculator() {
           {result && sent && (
             <div className="rounded-lg border border-green-500/40 bg-green-500/5 p-5 space-y-4">
               <div className="flex items-center gap-2 text-green-700 dark:text-green-400 font-bold">
-                <span className="material-icons">check_circle</span>
+                <CheckCircleIcon className="h-5 w-5" />
                 ¡Listo{nombre ? `, ${nombre.split(" ")[0]}` : ""}! Recibimos tus datos.
               </div>
 
