@@ -1,6 +1,7 @@
 'use client';
 
 import Image from "next/image";
+import Link from "next/link";
 import FiniquitoCalculator from "../components/FiniquitoCalculator";
 
 function BrandMark({ className = "h-8 w-8" }: { className?: string }) {
@@ -161,9 +162,9 @@ export default function Home() {
               </div>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#">Servicios</a>
-              <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#">Casos de Éxito</a>
-              <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#">Blog</a>
+              <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#servicios">Servicios</a>
+              <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#casos-de-exito">Casos de Éxito</a>
+              <a className="text-navy-custom hover:text-primary transition-colors font-semibold" href="#contacto">Contacto</a>
               <a href="tel:+525641541108" className="bg-navy-custom hover:bg-navy-custom/90 text-white px-6 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2 shadow-lg shadow-navy-custom/20">
                 <PhoneIcon />
                 CONSULTA GRATUITA
@@ -212,6 +213,46 @@ export default function Home() {
             <div>
               {/* Finiquito calculator component */}
               <FiniquitoCalculator />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="servicios" className="py-20 bg-background-light dark:bg-background-dark scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl font-bold text-navy-custom dark:text-white mb-4">Nuestros Servicios</h2>
+            <p className="text-slate-500 max-w-2xl mx-auto">Defensa laboral integral: desde calcular lo que realmente te corresponde hasta representarte ante los tribunales.</p>
+            <div className="h-1.5 w-24 bg-primary mx-auto rounded-full mt-5"></div>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-xl transition-all">
+              <div className="w-12 h-12 rounded-lg bg-navy-custom text-white flex items-center justify-center mb-4">
+                <span className="material-icons">gavel</span>
+              </div>
+              <h3 className="font-bold text-lg text-navy-custom dark:text-white mb-2">Despidos Injustificados</h3>
+              <p className="text-sm text-slate-500 leading-relaxed">Te representamos para exigir la indemnización que marca la ley y el pago íntegro de tus prestaciones cuando te despiden sin causa justificada.</p>
+            </div>
+            <div className="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-xl transition-all">
+              <div className="w-12 h-12 rounded-lg bg-navy-custom text-white flex items-center justify-center mb-4">
+                <span className="material-icons">shield</span>
+              </div>
+              <h3 className="font-bold text-lg text-navy-custom dark:text-white mb-2">Acoso Laboral</h3>
+              <p className="text-sm text-slate-500 leading-relaxed">Asesoría y acción legal ante hostigamiento o acoso en el trabajo, protegiendo tus derechos, tu integridad y tu estabilidad laboral.</p>
+            </div>
+            <div className="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-xl transition-all">
+              <div className="w-12 h-12 rounded-lg bg-navy-custom text-white flex items-center justify-center mb-4">
+                <span className="material-icons">calculate</span>
+              </div>
+              <h3 className="font-bold text-lg text-navy-custom dark:text-white mb-2">Cálculo de Finiquito</h3>
+              <p className="text-sm text-slate-500 leading-relaxed">Determinamos con precisión el monto que realmente te corresponde por finiquito o liquidación, para que no aceptes menos de lo justo.</p>
+            </div>
+            <div className="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-xl transition-all">
+              <div className="w-12 h-12 rounded-lg bg-navy-custom text-white flex items-center justify-center mb-4">
+                <span className="material-icons">groups</span>
+              </div>
+              <h3 className="font-bold text-lg text-navy-custom dark:text-white mb-2">Asesoría a Sindicatos</h3>
+              <p className="text-sm text-slate-500 leading-relaxed">Acompañamiento legal a sindicatos y grupos de trabajadores en negociaciones colectivas y en la defensa de sus intereses.</p>
             </div>
           </div>
         </div>
@@ -289,7 +330,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24 overflow-hidden bg-navy-custom text-white">
+      <section id="casos-de-exito" className="py-24 overflow-hidden bg-navy-custom text-white scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-end mb-12">
             <div>
@@ -335,7 +376,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="bg-white dark:bg-slate-900 py-16 border-t border-slate-200 dark:border-slate-800">
+      <footer id="contacto" className="bg-white dark:bg-slate-900 py-16 border-t border-slate-200 dark:border-slate-800 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-12">
             <div className="space-y-4">
@@ -350,10 +391,10 @@ export default function Home() {
             <div>
               <h5 className="font-bold text-navy-custom dark:text-white mb-6 uppercase text-xs tracking-widest">Servicios</h5>
               <ul className="space-y-3 text-sm text-slate-500">
-                <li><a className="hover:text-primary transition-colors" href="#">Despidos Injustificados</a></li>
-                <li><a className="hover:text-primary transition-colors" href="#">Acoso Laboral</a></li>
-                <li><a className="hover:text-primary transition-colors" href="#">Cálculo de Finiquito</a></li>
-                <li><a className="hover:text-primary transition-colors" href="#">Asesoría a Sindicatos</a></li>
+                <li><a className="hover:text-primary transition-colors" href="#servicios">Despidos Injustificados</a></li>
+                <li><a className="hover:text-primary transition-colors" href="#servicios">Acoso Laboral</a></li>
+                <li><a className="hover:text-primary transition-colors" href="#servicios">Cálculo de Finiquito</a></li>
+                <li><a className="hover:text-primary transition-colors" href="#servicios">Asesoría a Sindicatos</a></li>
               </ul>
             </div>
             <div>
@@ -375,10 +416,10 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-[11px] text-slate-400">© 2024 Cuatecontzi Asesoría Legal. Todos los derechos reservados. Aviso de Privacidad.</p>
+            <p className="text-[11px] text-slate-400">© {new Date().getFullYear()} Cuatecontzi Asesoría Legal. Todos los derechos reservados.</p>
             <div className="flex gap-6 text-[11px] text-slate-400">
-              <a className="hover:underline" href="#">Términos y Condiciones</a>
-              <a className="hover:underline" href="#">Mapa del Sitio</a>
+              <Link className="hover:underline hover:text-primary" href="/aviso-de-privacidad">Aviso de Privacidad</Link>
+              <Link className="hover:underline hover:text-primary" href="/terminos-y-condiciones">Términos y Condiciones</Link>
             </div>
           </div>
         </div>
