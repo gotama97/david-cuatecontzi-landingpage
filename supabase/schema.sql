@@ -4,7 +4,7 @@
 -- =====================================================================
 
 -- Estados del flujo de seguimiento (de captura hasta cobro)
-do $$
+do $enum$
 begin
   if not exists (select 1 from pg_type where typname = 'lead_status') then
     create type lead_status as enum (
@@ -18,7 +18,7 @@ begin
       'descartado'      -- no procede / no interesado
     );
   end if;
-end$$;
+end $enum$;
 
 -- Tabla principal de leads
 create table if not exists public.leads (
@@ -59,12 +59,14 @@ create index if not exists leads_status_idx     on public.leads (status);
 
 -- Mantener updated_at al día
 create or replace function public.set_updated_at()
-returns trigger as $$
+returns trigger
+language plpgsql
+as $fn$
 begin
   new.updated_at = now();
   return new;
 end;
-$$ language plpgsql;
+$fn$;
 
 drop trigger if exists leads_set_updated_at on public.leads;
 create trigger leads_set_updated_at
